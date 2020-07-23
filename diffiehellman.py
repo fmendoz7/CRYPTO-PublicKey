@@ -45,4 +45,16 @@ print("--------------------------------------------------------")
 message = "Cao Cao was the King Of Wei"
 
 from Crypto.Cipher import AES
+obj = AES.new(str(aliceShared)[0:32])
+
+ciphertext = obj.encrypt(message)
+
+print("CIPHERTEXT: ", ciphertext)
+
+print("------------------------")
+# bob will decrypt the message
+obj2 = AES.new(str(bobShared)[0:32])
+plaintext = obj2.decrypt(ciphertext)
+
+print("PLAINTEXT: ", plaintext)
 
